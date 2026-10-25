@@ -179,7 +179,7 @@ Todo lo editable está al principio de `js/main.js`:
 const CONFIG = {
   instagram: 'denise_grat',         // usuario de Instagram, sin @
   photo: 'assets/img/denise.jpg',   // foto del inicio
-  email: 'hola@gratdenise.com',     // correo que recibe los mensajes
+  email: 'denise.a.grat@gmail.com', // correo que recibe los mensajes
   formEndpoint: ''                  // opcional: URL de Formspree
 };
 const COURSES = [ { t:'Título', o:'Institución', y:'2025', s:'done' }, … ]; // s: 'done' | 'now' | 'next'

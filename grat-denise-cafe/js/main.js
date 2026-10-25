@@ -5,7 +5,7 @@
 const CONFIG = {
   instagram: 'denise_grat',         // usuario de Instagram, sin @
   photo: 'assets/img/denise.jpg',   // foto del inicio (vertical, 4:5); si no existe se ve el espacio vacío
-  email: 'hola@gratdenise.com',     // correo que recibe los mensajes
+  email: 'denise.a.grat@gmail.com', // correo que recibe los mensajes
   formEndpoint: ''                  // opcional: URL de Formspree (https://formspree.io/f/xxxx) para enviar sin abrir el correo
 };
 const COURSES = [
