@@ -13,7 +13,10 @@ const COURSES = [
   {t:'Barista Skills · Foundation', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
   {t:'Brewing · Foundation', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'},
   {t:'Brewing · Intermediate', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'},
-  {t:'Green Coffee · Foundation', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'}
+  {t:'Green Coffee · Foundation', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'},
+  {t:'Fundamentos de tueste', o:'', y:'', s:'next'},
+  {t:'Brewing · Advanced', o:'Specialty Coffee Association (SCA)', y:'', s:'next'},
+  {t:'Barista Skills · Intermediate', o:'Specialty Coffee Association (SCA)', y:'', s:'next'}
 ];
 const STATUS = {done:'completado', now:'en curso', next:'próximo'};
 const SERVICES = [
@@ -26,7 +29,7 @@ const SERVICES = [
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 document.getElementById('courses').innerHTML = COURSES.map(c =>
-  `<article class="card"><span class="yr">${c.y}</span><h3>${esc(c.t)}</h3><p>${esc(c.o)}</p><span class="stamp s-${c.s}">${STATUS[c.s]}</span></article>`).join('');
+  `<article class="card">${c.y ? `<span class="yr">${esc(c.y)}</span>` : ''}<h3>${esc(c.t)}</h3>${c.o ? `<p>${esc(c.o)}</p>` : ''}<span class="stamp s-${c.s}">${STATUS[c.s]}</span></article>`).join('');
 document.getElementById('svc').innerHTML = SERVICES.map((s,i) =>
   `<article><span class="n">0${i+1}</span><h3>${s.t}</h3><p>${s.d}</p></article>`).join('');
 const igUrl = 'https://www.instagram.com/' + CONFIG.instagram + '/';
