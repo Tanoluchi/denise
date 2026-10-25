@@ -22,7 +22,7 @@ Diseñá y programá el sitio personal de **Grat Denise**, barista de café de e
 3. **Cursos y certificados** como fichas de recetario en papel con cinta, levemente giradas, con año, institución y un sello manuscrito: completado / en curso / próximo.
 4. **Trabajemos juntos:** seis tarjetas oscuras numeradas (talleres, catas guiadas, capacitación de equipos, intervenciones de barra, asesoría para cafeterías, colaboraciones), con un brillo radial que sigue al cursor.
 5. **Contacto:** un bloque de papel con "Charlemos de café." y un V60 en SVG con gotas animadas.
-6. **Ventana "Charlemos de café":** botón a Instagram y formulario (nombre, correo, tipo de proyecto en chips, mensaje). Sin servidor, arma el correo para abrir o copiar. Con un endpoint de Formspree configurado, lo envía directo.
+6. **Ventana "Charlemos de café":** botón a Instagram y formulario (nombre, correo, tipo de proyecto en chips, mensaje). Lo envía directo desde la web con FormSubmit (o Formspree si se configura un endpoint), sin abrir el correo.
 
 **Redes:** solo Instagram.
 

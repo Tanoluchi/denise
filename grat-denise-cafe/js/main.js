@@ -6,7 +6,7 @@ const CONFIG = {
   instagram: 'denise_grat',         // usuario de Instagram, sin @
   photo: 'assets/img/denise.jpg',   // foto del inicio (vertical, 4:5); si no existe se ve el espacio vacío
   email: 'denise.a.grat@gmail.com', // correo que recibe los mensajes
-  formEndpoint: ''                  // opcional: URL de Formspree (https://formspree.io/f/xxxx) para enviar sin abrir el correo
+  formEndpoint: ''                  // opcional: otro servicio (ej. https://formspree.io/f/xxxx); vacío = FormSubmit envía a `email`
 };
 const COURSES = [
   {t:'Introduction to Coffee', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
@@ -39,7 +39,6 @@ const portrait = document.getElementById('portrait'), portraitImg = document.get
 portrait.classList.add('is-empty');
 portraitImg.addEventListener('load', () => portrait.classList.remove('is-empty'));
 if (CONFIG.photo) portraitImg.src = CONFIG.photo;
-document.querySelectorAll('[data-mail-text]').forEach(a => a.textContent = CONFIG.email);
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -356,9 +355,9 @@ let threeOn = false;
 /* ---------- Modal ---------- */
 const modal = document.getElementById('chat');
 const form = document.getElementById('chat-form');
-const done = document.getElementById('chat-done');
+const sent = document.getElementById('chat-sent');
 let lastFocus = null;
-function openChat(){ document.getElementById('chat-sent').hidden = true; if (form.hidden && done.hidden) form.hidden = false; lastFocus = document.activeElement; modal.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(() => (form.hidden ? modal.querySelector(done.hidden ? '.modal-x' : '#f-mailto') : document.getElementById('f-name')).focus(), 30); }
+function openChat(){ sent.hidden = true; form.hidden = false; lastFocus = document.activeElement; modal.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('f-name').focus(), 30); }
 function closeChat(){ modal.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
 document.addEventListener('click', e => { if (e.target.closest('[data-chat]')){ e.preventDefault(); openChat(); } });
 modal.addEventListener('click', e => { if (e.target === modal || e.target.closest('[data-close]')) closeChat(); });
@@ -377,29 +376,15 @@ form.addEventListener('submit', e => {
   const fd = new FormData(form);
   const name = (fd.get('name')||'').trim(), mail = (fd.get('email')||'').trim(), msg = (fd.get('msg')||'').trim(), tipo = fd.get('tipo');
   const err = document.getElementById('f-err');
-  if (!name || !msg){ err.textContent = 'Completá tu nombre y tu mensaje para poder armarlo.'; return; }
+  if (!name || !msg){ err.textContent = 'Completá tu nombre y tu mensaje para poder enviarlo.'; return; }
   if (!/^\S+@\S+\.\S+$/.test(mail)){ err.textContent = 'Revisá tu correo: necesito uno válido para responderte.'; return; }
   err.textContent = '';
-  const subject = 'Charlemos de café · ' + tipo;
-  const body = `Hola Denise, soy ${name}.\n\n${msg}\n\nTipo de proyecto: ${tipo}\nMi correo: ${mail}`;
-  document.getElementById('f-out').value = 'Asunto: ' + subject + '\n\n' + body;
-  document.getElementById('f-mailto').href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  if (CONFIG.formEndpoint){
-    const btn = form.querySelector('.m-submit'); btn.disabled = true; btn.textContent = 'Enviando…';
-    fetch(CONFIG.formEndpoint, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({nombre:name, email:mail, tipo, mensaje:msg, _subject:subject})})
-      .then(r => { if (!r.ok) throw 0; form.reset(); form.hidden = true; document.getElementById('chat-sent').hidden = false; })
-      .catch(() => { err.textContent = 'No se pudo enviar. Probá de nuevo o escribime por Instagram.'; })
-      .finally(() => { btn.disabled = false; btn.textContent = 'Preparar mensaje'; });
-    return;
-  }
-  form.hidden = true; done.hidden = false;
-});
-document.getElementById('f-back').addEventListener('click', () => { done.hidden = true; form.hidden = false; });
-document.getElementById('f-copy').addEventListener('click', function(){
-  const ta = document.getElementById('f-out'), btn = this;
-  const ok = () => { btn.textContent = 'Copiado'; setTimeout(() => btn.textContent = 'Copiar mensaje', 1800); };
-  const fail = () => { ta.select(); btn.textContent = 'Seleccionado: copialo'; };
-  try { navigator.clipboard.writeText(ta.value).then(ok, fail); } catch(e){ fail(); }
+  const btn = form.querySelector('.m-submit'); btn.disabled = true; btn.textContent = 'Enviando…';
+  fetch(CONFIG.formEndpoint || 'https://formsubmit.co/ajax/' + CONFIG.email, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({nombre:name, email:mail, tipo, mensaje:msg, _subject:'Charlemos de café · ' + tipo, _template:'table'})})
+    .then(r => r.json().catch(() => ({})).then(d => { if (!r.ok || d.success === false || d.success === 'false') throw 0; }))
+    .then(() => { form.reset(); form.hidden = true; sent.hidden = false; sent.querySelector('[data-close]').focus(); })
+    .catch(() => { err.textContent = 'No se pudo enviar. Probá de nuevo en un rato o escribime por Instagram.'; })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Enviar mensaje'; });
 });
 })();

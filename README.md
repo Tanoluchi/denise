@@ -29,7 +29,7 @@ Se apoya en el manual de marca:
 | 3 | **Cursos y certificados** (`#cursos`) | Fichas tipo recetario con año, institución y estado | Fichas de papel con cinta, levemente giradas, que se enderezan al pasar el mouse |
 | 4 | **Trabajemos juntos** (`#servicios`) | Seis servicios numerados | Tarjetas con un brillo que sigue al cursor |
 | 5 | **Contacto** | Cierre "Charlemos de café." en papel, con el V60 animado | Gotas cayendo (SVG + CSS) |
-| — | **Ventana "Charlemos de café"** | Botón de Instagram y formulario (nombre, correo, tipo de proyecto, mensaje) | Arma el correo listo para enviar, o lo envía directo con Formspree |
+| — | **Ventana "Charlemos de café"** | Botón de Instagram y formulario (nombre, correo, tipo de proyecto, mensaje) | Envía el mensaje directo desde la web (FormSubmit, o Formspree si se configura) |
 
 ### Etapas del recorrido 3D
 
@@ -154,7 +154,7 @@ Los modelos 3D (cafeto, cereza, granos, taza, plato) se generan por código en `
 | **Three.js r128** | Escena 3D (cargada por CDN desde cdnjs) |
 | **IntersectionObserver / ResizeObserver** | Pausar el 3D cuando no está visible y ajustar el tamaño |
 | **Google Fonts** | Tipografías |
-| **Formspree** (opcional) | Recibir los mensajes del formulario en tu correo sin servidor propio |
+| **FormSubmit** (o Formspree, opcional) | Recibir los mensajes del formulario en tu correo sin servidor propio |
 
 No necesita Node, npm ni compilación: son archivos estáticos.
 
@@ -180,7 +180,7 @@ const CONFIG = {
   instagram: 'denise_grat',         // usuario de Instagram, sin @
   photo: 'assets/img/denise.jpg',   // foto del inicio
   email: 'denise.a.grat@gmail.com', // correo que recibe los mensajes
-  formEndpoint: ''                  // opcional: URL de Formspree
+  formEndpoint: ''                  // opcional; vacío = FormSubmit
 };
 const COURSES = [ { t:'Título', o:'Institución', y:'2025', s:'done' }, … ]; // s: 'done' | 'now' | 'next'
 const SERVICES = [ { t:'Talleres', d:'Descripción…' }, … ];
@@ -193,8 +193,10 @@ const SERVICES = [ { t:'Talleres', d:'Descripción…' }, … ];
 
 ### Formulario de contacto
 
-- **Sin configurar** (`formEndpoint: ''`): el formulario arma el mensaje y ofrece "Abrir en mi correo" o "Copiar mensaje".
-- **Con Formspree:** creá una cuenta gratis en formspree.io y un formulario nuevo. Copiá la URL (`https://formspree.io/f/xxxxxx`) en `formEndpoint`. Desde ese momento los mensajes llegan directo a tu correo.
+El formulario envía el mensaje directo desde la web, sin abrir el correo de quien escribe.
+
+- **Por defecto** (`formEndpoint: ''`): usa [FormSubmit](https://formsubmit.co), gratis y sin cuenta. Los mensajes llegan a `email`. **La primera vez** que alguien envíe el formulario, FormSubmit manda a ese correo un mail de activación: hay que tocar "Activate Form" una sola vez. Hasta entonces los envíos fallan y el formulario pide escribir por Instagram.
+- **Con Formspree** (opcional): creá un formulario en formspree.io y pegá su URL (`https://formspree.io/f/xxxxxx`) en `formEndpoint`.
 
 ---
 

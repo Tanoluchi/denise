@@ -171,11 +171,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance}
 .m-chips input:focus-visible+label{outline:2px solid var(--m-acc);outline-offset:2px}
 .m-submit{justify-self:start;border:0;border-radius:999px;padding:14px 24px;background:var(--m-fg);color:var(--m-bg);font-weight:700;cursor:pointer}
 .m-err{color:#B5412F;font-size:13px;margin:0;min-height:1em}
-.m-done textarea{width:100%;min-height:150px;font:400 14px/1.5 var(--mono);color:var(--m-fg);background:transparent;border:1px solid var(--m-line);border-radius:10px;padding:12px}
-.m-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-.m-actions a,.m-actions button{border-radius:999px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none;border:1px solid var(--m-fg);background:transparent;color:var(--m-fg)}
-.m-actions a{background:var(--m-fg);color:var(--m-bg)}
-.m-mail{font:500 14px var(--mono);user-select:all}
 @media (max-width:520px){.m-row{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){

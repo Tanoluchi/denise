@@ -211,20 +211,11 @@
       </fieldset>
       <label for="f-msg">Tu mensaje<textarea id="f-msg" name="msg" required placeholder="Tengo una cafetería y queremos calibrar mejor el espresso…"></textarea></label>
       <p class="m-err" id="f-err" role="alert"></p>
-      <button class="m-submit" type="submit">Preparar mensaje</button>
+      <button class="m-submit" type="submit">Enviar mensaje</button>
     </form>
     <div class="m-done" id="chat-sent" hidden>
       <p class="m-lead"><b style="color:var(--m-fg)">Mensaje enviado.</b> Gracias por escribir, te respondo apenas pueda.</p>
-    </div>
-    <div class="m-done" id="chat-done" hidden>
-      <p class="m-lead" style="margin-bottom:12px"><b style="color:var(--m-fg)">Tu mensaje está listo.</b> Abrilo en tu correo para enviarlo, o copialo y mandalo a <span class="m-mail" data-mail-text></span></p>
-      <label for="f-out" class="m-eyebrow" style="display:block;margin-bottom:8px">Mensaje</label>
-      <textarea id="f-out" readonly></textarea>
-      <div class="m-actions">
-        <a id="f-mailto" href="#">Abrir en mi correo</a>
-        <button type="button" id="f-copy">Copiar mensaje</button>
-        <button type="button" id="f-back">Editar</button>
-      </div>
+      <button class="m-submit" type="button" data-close>Cerrar</button>
     </div>
   </div>
 </div>
