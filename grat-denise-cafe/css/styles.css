@@ -139,7 +139,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance}
   .hero{height:auto;min-height:clamp(560px,88vh,820px)}
   .title{position:relative;inset:auto;padding:96px 0 120px}
   .title .wrap{grid-template-columns:1fr;gap:28px}
-  .portrait{grid-column:1;width:min(150px,40vw);padding:7px 7px 9px}
+  .portrait{grid-column:1;width:min(200px,52vw);padding:8px 8px 10px}
   .portrait::before{width:56px;height:16px;top:-7px}
   .portrait.is-empty .portrait-empty{inset:7px 7px 9px;font-size:20px}
 }
