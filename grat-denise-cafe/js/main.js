@@ -333,8 +333,6 @@ let threeOn = false;
     const have = Math.tan(17 * Math.PI / 180) * (w / h);
     distMul = Math.min(2.6, Math.max(1, .42 / have));
     cam.updateProjectionMatrix();
-    // En pantallas anchas el texto va a la izquierda: la escena se corre a la derecha
-    if (w / h >= .9 && w >= 900) cam.setViewOffset(w, h, -w * .2, 0, w, h);
   }
   new ResizeObserver(size).observe(stage); size();
 

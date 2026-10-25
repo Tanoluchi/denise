@@ -67,7 +67,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance}
 .story-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   background:radial-gradient(60% 60% at 50% 50%,var(--glowA,rgba(169,198,160,.18)),transparent 70%),radial-gradient(45% 50% at 50% 58%,var(--glowB,rgba(192,135,86,.08)),transparent 70%),var(--bg)}
 .story-scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 60% at 50% 50%,rgba(18,32,25,.5),rgba(18,32,25,.18) 75%)}
-@media (min-width:900px){.story-scrim{background:radial-gradient(55% 70% at 22% 50%,rgba(18,32,25,.55),rgba(18,32,25,.12) 80%)}}
 .story-canvas{position:absolute;inset:0}
 .story-canvas canvas{display:block;width:100%!important;height:100%!important}
 .fallback{position:absolute;inset:0;display:grid;place-items:center;color:var(--fg);opacity:.35}
@@ -82,12 +81,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance}
 .story-hint{position:absolute;right:max(clamp(16px,4vw,40px),env(safe-area-inset-right,0px));bottom:max(40px,calc(24px + env(safe-area-inset-bottom,0px)));pointer-events:none}
 .story-steps{position:relative;z-index:2;overflow-x:clip;margin-top:-100vh;margin-top:-100svh}
 .step{min-height:100vh;min-height:100svh;display:flex;align-items:center}
-.step .wrap{width:100%}
+.step .wrap{width:100%;display:flex;justify-content:center}
 .card-s::before{content:"";position:absolute;inset:-6% -12%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(12,22,17,.6),rgba(12,22,17,0))}
-.card-s{position:relative;width:min(640px,100%);padding-block:40px;text-shadow:0 2px 24px rgba(8,14,11,.85),0 1px 3px rgba(8,14,11,.6)}
+.card-s{position:relative;width:min(920px,100%);text-align:center;padding-block:40px;text-shadow:0 2px 24px rgba(8,14,11,.85),0 1px 3px rgba(8,14,11,.6)}
 .card-s .num{font:600 13px var(--mono);letter-spacing:.12em;color:var(--sage);text-transform:uppercase}
-.card-s h2{font-size:clamp(38px,4.6vw,66px);line-height:1.02;margin:10px 0 16px}
-.card-s p{font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#ECE7DA;margin:0;max-width:54ch}
+.card-s h2{font-size:clamp(38px,6vw,80px);line-height:1;margin:14px auto 18px;max-width:21ch}
+.card-body{max-width:54ch;margin:0 auto;text-align:left}
+.card-s p{font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:#ECE7DA;margin:0}
 .card-s p+p{margin-top:10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .chips span{font:500 13px var(--mono);padding:7px 11px;border:1px solid rgba(236,231,218,.28);border-radius:8px;font-variant-numeric:tabular-nums;background:rgba(18,32,25,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-shadow:none}
