@@ -187,7 +187,7 @@ const SERVICES = [ { t:'Talleres', d:'Descripción…' }, … ];
 ```
 
 - **Tu foto:** guardala como `grat-denise-cafe/assets/img/denise.jpg` (vertical, proporción 4:5, unos 1200 × 1500 px). Hasta que la subas, el inicio muestra el espacio con la nota "tu foto acá".
-- **Cursos:** reemplazá los ejemplos por los reales. El estado `done` muestra "completado", `now` muestra "en curso" y `next` muestra "próximo". Después borrá la línea "Ejemplos de formato…" en `index.html`.
+- **Cursos:** agregá o editá entradas en `COURSES`. El estado `done` muestra "completado", `now` muestra "en curso" y `next` muestra "próximo".
 - **Textos del recorrido:** están en `index.html`, dentro de `<section class="story">`, uno por cada `<article class="step">`.
 - **Colores:** cambiá las variables de `:root` en `css/styles.css`. Los colores del 3D están en `js/main.js` (busca `0x`).
 
@@ -202,7 +202,7 @@ const SERVICES = [ { t:'Talleres', d:'Descripción…' }, … ];
 
 El repositorio ya publica el sitio solo: cada `git push` a `master` ejecuta el workflow `.github/workflows/pages.yml`, que sube el contenido de la carpeta `grat-denise-cafe/` a GitHub Pages.
 
-- **Dirección:** `https://tanoluchi.github.io/denise-portfolio/`
+- **Dirección:** `https://tanoluchi.github.io/denise/`
 - **Ver el estado:** pestaña **Actions** del repositorio. Si algo falla, ahí aparece el error.
 - **Configuración:** en **Settings → Pages**, "Source" tiene que decir **GitHub Actions** (ya está configurado).
 

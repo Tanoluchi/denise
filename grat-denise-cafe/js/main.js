@@ -9,14 +9,11 @@ const CONFIG = {
   formEndpoint: ''                  // opcional: URL de Formspree (https://formspree.io/f/xxxx) para enviar sin abrir el correo
 };
 const COURSES = [
-  {t:'Introduction to Coffee', o:'Specialty Coffee Association (SCA)', y:'2024', s:'done'},
-  {t:'Barista Skills · Foundation', o:'Specialty Coffee Association (SCA)', y:'2024', s:'done'},
-  {t:'Brewing · Foundation', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
-  {t:'Sensory Skills · Foundation', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
-  {t:'Latte art: textura de leche y patrones', o:'Taller presencial', y:'2025', s:'done'},
-  {t:'Calibración de espresso y extracción (TDS / EY)', o:'Curso intensivo', y:'2025', s:'done'},
-  {t:'Fundamentos de tueste', o:'Curso en tostaduría', y:'2026', s:'now'},
-  {t:'Barista Skills · Intermediate', o:'Specialty Coffee Association (SCA)', y:'2026', s:'next'}
+  {t:'Introduction to Coffee', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
+  {t:'Barista Skills · Foundation', o:'Specialty Coffee Association (SCA)', y:'2025', s:'done'},
+  {t:'Brewing · Foundation', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'},
+  {t:'Brewing · Intermediate', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'},
+  {t:'Green Coffee · Foundation', o:'Specialty Coffee Association (SCA)', y:'2026', s:'done'}
 ];
 const STATUS = {done:'completado', now:'en curso', next:'próximo'};
 const SERVICES = [
