@@ -36,7 +36,7 @@ Se apoya en el manual de marca:
 | Etapa | Objeto en 3D | Texto del perfil |
 |-------|--------------|------------------|
 | 01 · El cafeto | Arbusto con hojas, cerezas maduras y verdes | "Todo empieza mucho antes de la barra." (origen, trazabilidad) |
-| 02 · La cereza | La cereza se suelta, cae y la cámara la sigue | "Soy Denise, barista." (presentación) |
+| 02 · La cereza | La cereza se suelta, cae y la cámara la sigue | "Soy Denise" (presentación) |
 | 03 · Café verde | La cereza se vuelve transparente y aparecen dos semillas verdes | "El café verde todavía no sabe a café." (aprendizaje) |
 | 04 · El tueste | Los granos pasan de verde a amarillo, canela y marrón, crecen un 18 % y aparecen chispas de calor | "Calor, paciencia y muchos intentos." (el error como proceso) |
 | 05 · La taza | Los granos caen en una taza que sube; el café se llena con latte art y vapor | "Y al final, una taza para disfrutar como quieras." + botón |
