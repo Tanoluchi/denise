@@ -3,7 +3,8 @@
 (function(){
 /* ---------- Datos editables ---------- */
 const CONFIG = {
-  instagram: 'gratdenise',          // usuario de Instagram, sin @
+  instagram: 'denise_grat',         // usuario de Instagram, sin @
+  photo: 'assets/img/denise.jpg',   // foto del inicio (vertical, 4:5); si no existe se ve el espacio vacío
   email: 'hola@gratdenise.com',     // correo que recibe los mensajes
   formEndpoint: ''                  // opcional: URL de Formspree (https://formspree.io/f/xxxx) para enviar sin abrir el correo
 };
@@ -34,6 +35,10 @@ document.getElementById('svc').innerHTML = SERVICES.map((s,i) =>
 const igUrl = 'https://www.instagram.com/' + CONFIG.instagram + '/';
 document.querySelectorAll('[data-ig]').forEach(a => a.href = igUrl);
 document.querySelectorAll('[data-ig-label]').forEach(a => a.textContent = '@' + CONFIG.instagram + ' ↗');
+const portrait = document.getElementById('portrait'), portraitImg = document.getElementById('portrait-img');
+portrait.classList.add('is-empty');
+portraitImg.addEventListener('load', () => portrait.classList.remove('is-empty'));
+if (CONFIG.photo) portraitImg.src = CONFIG.photo;
 document.querySelectorAll('[data-mail-text]').forEach(a => a.textContent = CONFIG.email);
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -177,7 +177,8 @@ Todo lo editable está al principio de `js/main.js`:
 
 ```js
 const CONFIG = {
-  instagram: 'gratdenise',          // usuario de Instagram, sin @
+  instagram: 'denise_grat',         // usuario de Instagram, sin @
+  photo: 'assets/img/denise.jpg',   // foto del inicio
   email: 'hola@gratdenise.com',     // correo que recibe los mensajes
   formEndpoint: ''                  // opcional: URL de Formspree
 };
@@ -185,6 +186,7 @@ const COURSES = [ { t:'Título', o:'Institución', y:'2025', s:'done' }, … ]; 
 const SERVICES = [ { t:'Talleres', d:'Descripción…' }, … ];
 ```
 
+- **Tu foto:** guardala como `grat-denise-cafe/assets/img/denise.jpg` (vertical, proporción 4:5, unos 1200 × 1500 px). Hasta que la subas, el inicio muestra el espacio con la nota "tu foto acá".
 - **Cursos:** reemplazá los ejemplos por los reales. El estado `done` muestra "completado", `now` muestra "en curso" y `next` muestra "próximo". Después borrá la línea "Ejemplos de formato…" en `index.html`.
 - **Textos del recorrido:** están en `index.html`, dentro de `<section class="story">`, uno por cada `<article class="step">`.
 - **Colores:** cambiá las variables de `:root` en `css/styles.css`. Los colores del 3D están en `js/main.js` (busca `0x`).
